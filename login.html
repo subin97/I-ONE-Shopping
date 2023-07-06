@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>oneshopping</title>
+
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    function execDaumPostcode() {
+      new daum.Postcode({
+        oncomplete: function (data) {
+          document.getElementById('zip-code').value = data.zonecode;
+          document.getElementById('address-1').value = data.address;
+        }
+      }).open();
+    }
+  </script>
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    .wrapper {
+      width: 400px;
+      margin-bottom: 100px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      position: absolute;
+      left: 50%;
+      margin-left: -200px;
+      margin-top: 100px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .inputwp {
+      margin-top: 25px;
+      font-size: 17px;
+    }
+
+    .title {
+      display: block;
+      font-weight: bold;
+    }
+
+    .inputwp input {
+      width: 400px;
+      height: 40px;
+      outline: none;
+      flex: 1;
+      border: 1px solid #707070;
+      border-radius: 5px;
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .ps {
+      display: block;
+      font-size: 15px;
+      margin-top: 3px;
+    }
+
+    .btn {
+      height: 50px;
+      border: none;
+      border-radius: 10px;
+      background-color: #5d5d5d;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      margin-top: 60px;
+      cursor: pointer;
+      &:hover{
+        background-color: rgb(39, 39, 39);
+        color: white;
+      }
+    }
+
+
+    .go {
+      width: 100px;
+      font-size: 17px;
+      font-weight: bold;
+      color: #6e6e6e;
+      margin-top: 40px;
+      margin-left: 150px;
+      text-align: center;
+      cursor: pointer;
+      background-color: white;
+      border: none;
+      margin-bottom: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1413108467/xct18mxnvlunip4gnm62.png"
+          alt="Logo" width="200" height="70" class="d-inline-block align-text-center">
+        &nbsp;&nbsp;&nbsp;
+      </a>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./home">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./cart">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./loginDefault">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./editMyData">MyPage</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./adminLoginDefault">AdminLogin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./adminPage">AdminPage</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+    <h1>회원가입</h1>
+    <form class="form" name="join_form" action="/add" method="POST">
+      <div class="inputwp">
+        <span class="title">이름</span>
+        <input placeholder="이름" name="name" required />
+      </div>
+      <div class="inputwp">
+        <span class="title">아이디</span>
+        <input placeholder="아이디" name="id" required />
+        <span class="ps">* 4~12글자까지만 입력 가능</span>
+      </div>
+      <div class="inputwp">
+        <span class="title">비밀번호</span>
+        <input type="password" placeholder="비밀번호" name="password" required />
+        <span class="ps">* 4~12글자까지만 입력 가능</span>
+      </div>
+      <div class="inputwp">
+        <span class="title">비밀번호 확인</span>
+        <input type="password" placeholder="비밀번호 확인" name="repwd" required />
+      </div>
+      <div class="inputwp">
+        <span class="title">생년월일</span>
+        <input placeholder="8자리 생년월일" name="birthdate" required />
+        <span class="ps">ex)19700101</span>
+      </div>
+      <div class="inputwp">
+        <span class="title">주소</span>
+        <input type="text" id='zip-code' name="zipcode" placeholder="우편번호" style="width:255px;">
+        <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" style="width:140px; padding-left: 10px;">
+        <input type="text" id='address-1' name="address1" placeholder="도로명주소">
+        <input type="text" id='address-2' name="address2" placeholder="상세주소">
+      </div>
+      <div class="inputwp">
+        <span class="title">이메일</span>
+        <input placeholder="이메일" name="email" required />
+      </div>
+      <div class="inputwp">
+        <span class="title">전화번호</span>
+        <input placeholder="전화번호" name="phonenumber" required />
+        <span class="ps">* '-'없이 숫자만 입력</span>
+      </div>
+
+
+      <button class="btn" type="submit" class="btn">회원가입</button>
+
+
+    </form>
+    <div class="go" type="button">이전으로</div>
+  </div>
+</body>

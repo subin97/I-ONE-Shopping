@@ -1,0 +1,144 @@
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <title>oneshopping</title>
+
+  <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1413108467/xct18mxnvlunip4gnm62.png" 
+          alt="Logo" width="200" height="70" class="d-inline-block align-text-center">
+          &nbsp;&nbsp;&nbsp;
+        </a>
+        
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Cart</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./MyData">MyPage</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>        
+  </nav>
+
+
+<!--기본정보-->
+<body>
+  <form name="join_form" action="/editMyData?_method=PUT" method="POST">
+    <p></p><p></p>
+    <div class="alert alert-primary" role="alert">
+      수정 전
+    </div>
+    <p></p><p></p>
+  <ul class="list-group">
+    <p> &nbsp;&nbsp;&nbsp;이름 : <%= userInfo.name%></p>  
+    <p> &nbsp;&nbsp;&nbsp;아이디 : <%= userInfo.id%></p>  
+    <p> &nbsp;&nbsp;&nbsp;생년월일 : <%= userInfo.birthdate%></p>    
+    <p> &nbsp;&nbsp;&nbsp;이메일 : <%= userInfo.email%></p>    
+    <p> &nbsp;&nbsp;&nbsp;전화번호 : <%= userInfo.phonenumber%></p>    
+    <p> &nbsp;&nbsp;&nbsp;주소 : <%= userInfo.address%></p>    
+    <p> &nbsp;&nbsp;&nbsp;우편번호 : <%= userInfo.zipcode%></p>   
+    </p>
+  </ul>
+  </form>
+</body>
+
+  <!--수정 후 정보-->
+  <body>
+    <form name="j" action="/update" method="POST">
+      <fieldset>
+        <p></p><p></p>
+        <div class="alert alert-primary" role="alert">
+          수정 후
+        </div>
+        <p></p><p></p>
+    
+        <p>
+          <label for="u_id">&nbsp;&nbsp;&nbsp;아이디</label>
+          <input type="text" name="id">
+          <br>
+        </p>
+        <p>
+          <label for="pwd">&nbsp;&nbsp;&nbsp;비밀번호</label>
+          <input type="password" name="password"> 
+          <br>
+          <span class="err_pwd">&nbsp;&nbsp;&nbsp;* 4~12글자까지만 입력 가능합니다.</span>
+        </p>
+        <p>
+          <label for="repwd">&nbsp;&nbsp;&nbsp;비밀번호 확인</label>
+          <input type="password" name="repwd">
+          <br>
+          <span class="err_repwd"></span>
+        </p>
+
+        <p>
+          <label for="birth">&nbsp;&nbsp;&nbsp;생년월일</label>
+          <input type="text" name="birthdate">
+          <br>
+          <span class="err_birth">&nbsp;&nbsp;&nbsp;* ex)19700101 - 8자리로 입력</span>
+        </p>
+
+        <!--
+        <p>
+          <label for="postalCode">주소검색</label>
+          <input type="text" name="postalCode" id="postalCode" placeholder="우편번호">
+          <button type="button">주소검색</button> <br>
+          <label for="addr1">주소</label>
+          <input type="text" name="addr1" id="addr1" placeholder="기본주소">
+          <label for="addr2"></label>
+          <input type="text" name="addr2" id="addr2" placeholder="상세주소">
+        </p>
+        -->
+
+        <p>
+          <label for="email_id">&nbsp;&nbsp;&nbsp;이메일</label>
+          <input type="text" name="email">
+  
+        </p>
+        <p>
+          <label for="mobile">&nbsp;&nbsp;&nbsp;전화번호</label>
+          <input type="text" name="phonenumber">
+          <br>
+          <span class="err_mobile">&nbsp;&nbsp;&nbsp;* '-'없이 숫자만 입력</span>
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="agree" id="agree">
+          <label for="agree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;약관 동의</label>
+          <br>
+          <span class="err_agree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 필수</span>
+        </p>      
+
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="submit" class="delete">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;수정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        </p>
+
+      </fieldset>
+    </form>
+    <!-- <script src="join.js" type="text/javascript"></script> -->
+  </body>

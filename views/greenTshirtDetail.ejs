@@ -1,0 +1,135 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>oneshopping</title>
+  <style>
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 100px;
+    }
+
+    .wp {
+      width: 50%;
+      height: 100%;
+      margin-bottom: 4%;
+      padding: 0 20px 0 20px;
+    }
+
+    .wp img {
+      width: 70%;
+      margin-left: 160px;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-top: 40px;
+    }
+
+
+    .inform {
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 70px;
+      margin-bottom: 20px;
+    }
+
+    .inform span{
+      margin-right: 70px;
+    }
+
+    .detail {
+      font-size: 20px;
+      margin-top: 40px;
+    }
+    .btn {
+      height: 50px;
+      width: 450px;
+      border: none;
+      border-radius: 10px;
+      background-color: #5d5d5d;
+      color: white;
+      font-size: 20px;
+      margin-top: 60px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(39, 39, 39);
+        color: white;
+      }
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1413108467/xct18mxnvlunip4gnm62.png"
+          alt="Logo" width="200" height="70" class="d-inline-block align-text-center">
+        &nbsp;&nbsp;&nbsp;
+      </a>
+
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./home">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./cart">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./loginDefault">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./editMyData">MyPage</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./adminLoginDefault">AdminLogin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./adminPage">AdminPage</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </nav>
+  <div class="wrapper">
+    <div class="wp">
+      <img src="https://simage-kr.uniqlo.com/display/corner/2162/L2_M_CATEGORY_TSHIRT_230324.jpg" />
+    </div>
+    <div class="wp">
+      <h1 class="name">greenTshirt</h1>
+      <div class="detail">아마존의 숲보다도 더욱 진한 초록빛 티셔츠.</br>
+        보기만 해도 피톤치드의 효과를 느낄 수 있다.</br>
+        칼라의 형태가 쉽게 흐트러지지 않도록 만들었다.</div>
+      <div class="inform">
+        <span>사이즈: FREE</span>
+        <span>30000원</span>
+      </div>
+      <form name="greencart" action="/addGreen" method="POST">
+        <button class="btn" type="submit">장바구니 담기</button>
+      </form>
+    </div>
+
+  </div>
+
+</body>

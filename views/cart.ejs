@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>oneshopping</title>
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1413108467/xct18mxnvlunip4gnm62.png" 
+            alt="Logo" width="200" height="70" class="d-inline-block align-text-center">
+            &nbsp;&nbsp;&nbsp;
+          </a>
+          
+
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./home">Home</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Products</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Cart</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./loginDefault">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./editMyData">MyPage</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./adminLoginDefault">AdminLogin</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./adminPage">AdminPage</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+
+        
+        </div>         
+    </nav>
+  </head>
+
+
+
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <body>
+    <form name="join_form" action="/?_method=PUT" method="POST">
+      <p></p><p></p>
+      <p></p><p></p>
+
+      <div class="alert alert-primary" role="alert">
+        장바구니 정보
+      </div>
+
+    <div class='product'>
+      <% var sum = 0%>
+      <% for (var i = 0; i < cartInfo.length; i ++) { %>
+        <%sum += cartInfo[i].price %>
+        <ol>
+        <div>
+        <img src=<%= cartInfo[i].imageLink %> width="200" height="200" alt="My Image">
+        <h2>&nbsp;
+          <%= cartInfo[i].name%></h2>      <p></p><p></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Price <%= cartInfo[i].price %></p>      <p></p><p></p>
+        </div>
+    </ol>
+      <% } %>
+    </div>
+    </form>
+
+
+    <form name="j" action="/order" method="POST">
+        <p></p><p></p>
+        <h4>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+        <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;합산금액 : <%= sum %> &nbsp;&nbsp;
+            <button type="submit" class="delete">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주문&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </button>
+        </p>  
+    </h4>
+      </form>
+
+  </body>
+</body>
+
+</html>
